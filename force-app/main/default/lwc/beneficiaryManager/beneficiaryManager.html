@@ -1,0 +1,122 @@
+<template>
+  <lightning-card title="Beneficiaries" icon-name="standard:contact_list">
+    <div slot="actions">
+      <lightning-button-group>
+        <lightning-button
+          label="Add primary"
+          data-designation="Primary"
+          onclick={handleAdd}
+        ></lightning-button>
+        <lightning-button
+          label="Add contingent"
+          data-designation="Contingent"
+          onclick={handleAdd}
+        ></lightning-button>
+        <lightning-button
+          label="Split primary evenly"
+          onclick={handleSplitPrimary}
+        ></lightning-button>
+      </lightning-button-group>
+    </div>
+
+    <div class="slds-p-horizontal_medium">
+      <template lwc:if={loadError}>
+        <p class="slds-text-color_error load-error">{loadError}</p>
+      </template>
+
+      <template lwc:if={isEmpty}>
+        <p class="slds-text-color_weak empty-state">
+          No beneficiaries on this policy yet.
+        </p>
+      </template>
+
+      <template for:each={rows} for:item="row">
+        <div
+          key={row.key}
+          class="slds-grid slds-gutters slds-wrap beneficiary-row"
+        >
+          <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12">
+            <lightning-input
+              label="Full name"
+              value={row.Full_Name__c}
+              data-key={row.key}
+              data-field="Full_Name__c"
+              onchange={handleFieldChange}
+              required
+            ></lightning-input>
+          </div>
+          <div class="slds-col slds-size_1-of-2 slds-medium-size_2-of-12">
+            <lightning-combobox
+              label="Relationship"
+              value={row.Relationship__c}
+              options={relationshipOptions}
+              data-key={row.key}
+              data-field="Relationship__c"
+              onchange={handleFieldChange}
+            ></lightning-combobox>
+          </div>
+          <div class="slds-col slds-size_1-of-2 slds-medium-size_2-of-12">
+            <lightning-combobox
+              label="Designation"
+              value={row.Designation__c}
+              options={designationOptions}
+              data-key={row.key}
+              data-field="Designation__c"
+              onchange={handleFieldChange}
+            ></lightning-combobox>
+          </div>
+          <div class="slds-col slds-size_1-of-2 slds-medium-size_2-of-12">
+            <lightning-input
+              type="number"
+              label="Allocation %"
+              step="0.01"
+              min="0.01"
+              max="100"
+              value={row.Allocation_Percent__c}
+              data-key={row.key}
+              data-field="Allocation_Percent__c"
+              onchange={handleFieldChange}
+            ></lightning-input>
+          </div>
+          <div
+            class="slds-col slds-size_1-of-2 slds-medium-size_2-of-12 slds-align-bottom"
+          >
+            <lightning-button-icon
+              icon-name="utility:delete"
+              alternative-text="Remove beneficiary"
+              data-key={row.key}
+              onclick={handleRemove}
+            ></lightning-button-icon>
+          </div>
+        </div>
+      </template>
+
+      <p class="slds-m-top_small totals">
+        Primary total: {primaryTotal}% | Contingent total: {contingentTotal}%
+      </p>
+
+      <template lwc:if={hasErrors}>
+        <ul class="slds-text-color_error slds-m-top_x-small validation-errors">
+          <template for:each={errors} for:item="message">
+            <li key={message}>{message}</li>
+          </template>
+        </ul>
+      </template>
+    </div>
+
+    <div slot="footer">
+      <lightning-button
+        label="Cancel"
+        class="slds-m-right_x-small"
+        onclick={handleCancel}
+      ></lightning-button>
+      <lightning-button
+        variant="brand"
+        label="Save"
+        class="save-button"
+        disabled={saveDisabled}
+        onclick={handleSave}
+      ></lightning-button>
+    </div>
+  </lightning-card>
+</template>
