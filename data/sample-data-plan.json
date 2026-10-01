@@ -1,0 +1,4 @@
+[
+  { "sobject": "Policy__c", "saveRefs": true, "resolveRefs": false, "files": ["Policy__c.json"] },
+  { "sobject": "Beneficiary__c", "saveRefs": false, "resolveRefs": true, "files": ["Beneficiary__c.json"] }
+]

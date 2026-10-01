@@ -1,0 +1,18 @@
+{
+  "records": [
+    {
+      "attributes": { "type": "Policy__c", "referenceId": "PolicyRef1" },
+      "Name": "DEMO-TL-100001",
+      "Product_Type__c": "Term Life",
+      "Status__c": "Active",
+      "Policyholder_Name__c": "Jamie Sample"
+    },
+    {
+      "attributes": { "type": "Policy__c", "referenceId": "PolicyRef2" },
+      "Name": "DEMO-FA-200002",
+      "Product_Type__c": "Fixed Annuity",
+      "Status__c": "Active",
+      "Policyholder_Name__c": "Morgan Placeholder"
+    }
+  ]
+}

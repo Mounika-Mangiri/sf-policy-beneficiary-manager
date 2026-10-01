@@ -1,0 +1,36 @@
+{
+  "records": [
+    {
+      "attributes": { "type": "Beneficiary__c", "referenceId": "BenRef1" },
+      "Policy__c": "@PolicyRef1",
+      "Full_Name__c": "Taylor Sample",
+      "Relationship__c": "Spouse",
+      "Designation__c": "Primary",
+      "Allocation_Percent__c": 100
+    },
+    {
+      "attributes": { "type": "Beneficiary__c", "referenceId": "BenRef2" },
+      "Policy__c": "@PolicyRef1",
+      "Full_Name__c": "Avery Sample",
+      "Relationship__c": "Child",
+      "Designation__c": "Contingent",
+      "Allocation_Percent__c": 50
+    },
+    {
+      "attributes": { "type": "Beneficiary__c", "referenceId": "BenRef3" },
+      "Policy__c": "@PolicyRef1",
+      "Full_Name__c": "Quinn Sample",
+      "Relationship__c": "Child",
+      "Designation__c": "Contingent",
+      "Allocation_Percent__c": 50
+    },
+    {
+      "attributes": { "type": "Beneficiary__c", "referenceId": "BenRef4" },
+      "Policy__c": "@PolicyRef2",
+      "Full_Name__c": "Sample Family Trust",
+      "Relationship__c": "Trust",
+      "Designation__c": "Primary",
+      "Allocation_Percent__c": 100
+    }
+  ]
+}
