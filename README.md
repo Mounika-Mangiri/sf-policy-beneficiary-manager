@@ -6,6 +6,8 @@ A Lightning Web Component that lets an insurance servicing agent view and change
 
 > **Representative portfolio project.** Written independently with synthetic data to demonstrate the kind of servicing work done on Salesforce in insurance and retirement. It contains no employer or client code, data, object names or configuration. It uses its own custom objects (`Policy__c`, `Beneficiary__c`) and is not a Financial Services Cloud package.
 
+**Skills shown:** Lightning Web Components (LWC) · Apex service layer · user-mode SOQL/DML security · transaction control (savepoint/rollback) · Jest unit testing (96% coverage) · Apex testing with System.runAs · Salesforce DX · CI with GitHub Actions and PMD · insurance / annuity servicing
+
 ## Business problem
 
 Beneficiary changes are one of the most common life and annuity service requests, and mistakes are costly: allocations that do not add up to 100% get rejected downstream or, worse, paid out wrong. Agents need one screen that:
